@@ -8,12 +8,24 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signup(email, password);
-      alert('Signup successful! Please log in.');
+      const response = await signup({ email, password });
+      console.log('Signup successful', response.data);
+      // Additional actions upon successful signup, e.g., redirect or state update
     } catch (error) {
-      console.error('Signup failed:', error.response.data.message);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error('Signup failed:', error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error('Signup failed: No response', error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error', error.message);
+      }
     }
   };
+
 
   return (
     <div>

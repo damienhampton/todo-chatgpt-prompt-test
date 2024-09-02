@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { getTasks, deleteTask } from '../../api';
+import { fetchTasks, deleteTask } from '../../api';
 
 function TaskList({ token }) {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    const fetchTasks = async () => {
+    const _fetchTasks = async () => {
       try {
-        const response = await getTasks(token);
+        const response = await fetchTasks(token);
         setTasks(response.data);
       } catch (error) {
         console.error('Failed to fetch tasks:', error.response.data.message);
       }
     };
-    fetchTasks();
+    _fetchTasks();
   }, [token]);
 
   const handleDelete = async (taskId) => {
