@@ -1,6 +1,21 @@
 
 # Task Manager Application
 
+## ChatGPT
+
+This app is built almost entirely from ChatGPT prompts. Process has been:
+
+- Ask ChatGPT to generate something
+- Ask it to provide a zip download
+- Attempt to run the code and report errors as follow-up prompts
+- Take response from ChatGPT and incorporate
+
+I've tried as much as possible not to fix any issues, although I have had to debug some issues in order to shape my follow-up prompts.
+
+The current app works - just about - but it is very minimal and already has technical debt (check the database migrations). 
+
+## Overview
+
 This Task Manager application is a full-stack web application with a React frontend and a Node.js (Express) backend. Below you will find the instructions to run the application locally, deploy it to Heroku (backend), deploy it to Netlify (frontend), and set up GitHub Actions for continuous integration and deployment.
 
 ## Running the Application Locally
